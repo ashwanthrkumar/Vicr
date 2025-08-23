@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Project Details</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+  <style>
+    .container { max-width: 960px; }
+    .tags .badge { margin-right: .25rem; }
+    .project-img {
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: .75rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <a href="/" class="btn btn-link mb-4">&larr; Back</a>
+
+    <!-- Project Title -->
+    <h1 id="title" class="mb-3"></h1>
+
+    <!-- Tags -->
+    <div class="tags mb-3" id="tags"></div>
+
+    <!-- Project Image -->
+    <img id="image" class="img-fluid project-img" alt="">
+
+    <!-- Project Description -->
+    <p id="description" class="fs-5"></p>
+  </div>
+
+<script>
+function getProjectId() {
+  const id = new URLSearchParams(location.search).get('id');
+  return id && id.trim() ? id.trim() : null;
+}
+
+async function loadProject() {
+  const id = getProjectId();
+  const out = (msg) => console.log("[details]", msg);
+
+  // Debug panel
+  const dbg = document.createElement('pre');
+  dbg.style.background = '#111'; dbg.style.color = '#0f0';
+  dbg.style.padding = '12px'; dbg.style.borderRadius = '8px';
+  dbg.style.fontSize = '12px'; dbg.style.overflow = 'auto';
+  document.body.appendChild(dbg);
+  const dump = (k,v)=> dbg.textContent += `${k}: ${v}\n`;
+
+  dump('URL', location.href);
+  dump('id (query)', id ?? 'null');
+
+  if (!id) {
+    document.getElementById('title').textContent = "Project not found";
+    document.getElementById('description').textContent = "No project ID was provided.";
+    return;
+  }
+
+  const url = `http://localhost:8080/api/projects/${encodeURIComponent(id)}`;
+  dump('fetching', url);
+
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    dump('status', res.status);
+    dump('statusText', res.statusText);
+    dump('content-type', res.headers.get('content-type') || 'none');
+
+    const text = await res.text();
+    dump('raw body (first 400 chars)', text.slice(0, 400));
+
+    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+
+    let p;
+    try { p = JSON.parse(text); } catch (e) {
+      throw new Error('Response is not JSON. Check backend controller.');
+    }
+
+    // Expecting { title, description, imageUrl, tags }
+    document.getElementById('title').textContent = p.title || "Untitled Project";
+    document.getElementById('description').textContent = p.description || "";
+
+    const img = document.getElementById('image');
+    img.src = p.imageUrl || "";
+    img.alt = p.title || "Project image";
+
+    document.getElementById('tags').innerHTML = (p.tags || [])
+      .map(t => `<span class="badge text-dark border">${t}</span>`)
+      .join('');
+
+    out('Loaded project OK');
+  } catch (err) {
+    console.error(err);
+    document.getElementById('title').textContent = "Error loading project";
+    document.getElementById('description').textContent = err.message;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadProject);
+</script>
+
+</body>
+</html>
