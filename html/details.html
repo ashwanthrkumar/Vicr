@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project Details</title>
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
   <style>
     .container {
       max-width: 960px;
@@ -68,7 +68,7 @@
         return;
       }
 
-      const url = `https://vicr-backend-138921536591.asia-south1.run.app/api/projects/${encodeURIComponent(id)}`;
+      const url = `http://localhost:8080/api/projects/${encodeURIComponent(id)}`;
       dump('fetching', url);
 
       try {
