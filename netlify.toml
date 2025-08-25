@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+
+# Use Edge Function for your existing URL:
+[[edge_functions]]
+  function = "seo-blog"
+  path = "/html/blog-detail.html"
+
+# Optional pretty URLs like /blog/:slug -> same function
+[[edge_functions]]
+  function = "seo-blog"
+  path = "/blog/*"
+
+# If you rely on SPA-style routing elsewhere, keep a fallback:
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
