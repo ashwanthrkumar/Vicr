@@ -7,7 +7,7 @@
 
 [[edge_functions]]
   function = "seo-blog"
-  path = "/blog/*"
+  path = "/*"
 
 
 
