@@ -1,15 +1,12 @@
 [build]
   publish = "."
 
+# IMPORTANT: use a glob that matches the path
 [[edge_functions]]
   function = "seo-blog"
-  path = "/*"
+  path = "/html/blog-detail.html*"
 
-
-
-# Optional: proxy /api/* so your page JS can use relative URLs
-# [[redirects]]
-#   from = "/api/*"
-#   to = "https://backend.ashwanthrkumar.in/api/:splat"
-#   status = 200
-#   force = true
+# Optional pretty route once the above works:
+# [[edge_functions]]
+#   function = "seo-blog"
+#   path = "/blog/*"
