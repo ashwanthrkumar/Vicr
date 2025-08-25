@@ -5,9 +5,17 @@
   function = "seo-blog"
   path = "/html/blog-detail.html"
 
+
+# TEMP: ping edge function on everything
+[[edge_functions]]
+  function = "ping"
+  path = "/*"
+  
 [[edge_functions]]
   function = "seo-blog"
   path = "/blog/*"
+
+
 
 # Optional: proxy /api/* so your page JS can use relative URLs
 # [[redirects]]
