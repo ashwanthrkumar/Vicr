@@ -777,82 +777,39 @@
 
 
     <!--  Blog Section -->
-    <section class="blog bg-light-gray py-5 py-lg-11 py-xl-12">
-      <div class="container">
-        <div class="d-flex flex-column gap-5 gap-xl-11">
-          <div class="row gap-7 gap-xl-0">
-            <div class="col-xl-4 col-xxl-4">
-              <div class="d-flex align-items-center gap-7 py-2" data-aos="fade-right" data-aos-delay="100"
-                data-aos-duration="1000">
-                <span
-                  class="round-36 flex-shrink-0 text-dark rounded-circle bg-primary hstack justify-content-center fw-medium">09</span>
-                <hr class="border-line bg-dark">
-                <span class="badge text-bg-dark">Blog</span>
-              </div>
-            </div>
-            <div class="col-xl-8 col-xxl-7">
-              <div class="row">
-                <div class="col-xxl-8">
-                  <div class="d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="100"
-                    data-aos-duration="1000">
-                    <h2 class="mb-0">Latest from my desk</h2>
-                    <p class="fs-5 mb-0 text-opacity-70">
-                      Thoughts, experiments, and stories from my journey — coding, design, and everything in between.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <!--  Blog Section (dynamic) -->
+<section class="blog bg-light-gray py-5 py-lg-11 py-xl-12">
+  <div class="container">
+    <div class="d-flex flex-column gap-5 gap-xl-11">
+      <div class="row gap-7 gap-xl-0">
+        <div class="col-xl-4 col-xxl-4">
+          <div class="d-flex align-items-center gap-7 py-2" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
+            <span class="round-36 flex-shrink-0 text-dark rounded-circle bg-primary hstack justify-content-center fw-medium">09</span>
+            <hr class="border-line bg-dark">
+            <span class="badge text-bg-dark">Blog</span>
           </div>
+        </div>
+        <div class="col-xl-8 col-xxl-7">
           <div class="row">
-
-            <!-- Blog Post 1 -->
-            <div class="col-xl-6 mb-7 mb-xl-0">
-              <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="100"
-                data-aos-duration="1000">
-                <a href="blog-detail.html"
-                  class="resources-img resources-img-first position-relative overflow-hidden d-block">
-                  <img src="../assets/images/resources/resources-1.jpg" alt="AI Tool" class="img-fluid">
-                </a>
-                <div class="resources-details">
-                  <p class="mb-0">Aug 2025</p>
-                  <h4 class="mb-0">Building my AI-powered Content Automation Tool</h4>
-                </div>
+            <div class="col-xxl-8">
+              <div class="d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                <h2 class="mb-0">Latest from my desk</h2>
+                <p class="fs-5 mb-0 text-opacity-70">
+                  Thoughts, experiments, and stories from my journey — coding, design, and everything in between.
+                </p>
               </div>
             </div>
-
-            <!-- Blog Post 2 -->
-            <div class="col-md-6 col-xl-3 mb-7 mb-xl-0">
-              <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="200"
-                data-aos-duration="1000">
-                <a href="blog-detail.html" class="resources-img position-relative overflow-hidden d-block">
-                  <img src="../assets/images/resources/resources-2.jpg" alt="Spring Boot" class="img-fluid">
-                </a>
-                <div class="resources-details">
-                  <p class="mb-0">Jul 2025</p>
-                  <h4 class="mb-0">Spring Boot + Docker: Deploying on Cloud Run</h4>
-                </div>
-              </div>
-            </div>
-
-            <!-- Blog Post 3 -->
-            <div class="col-md-6 col-xl-3 mb-7 mb-xl-0">
-              <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="300"
-                data-aos-duration="1000">
-                <a href="blog-detail.html" class="resources-img position-relative overflow-hidden d-block">
-                  <img src="../assets/images/resources/resources-3.jpg" alt="Brand Design" class="img-fluid">
-                </a>
-                <div class="resources-details">
-                  <p class="mb-0">Jun 2025</p>
-                  <h4 class="mb-0">Designing brand identities that actually stand out</h4>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- Dynamic grid goes here -->
+      <div class="row" id="blog-grid">
+        <!-- Cards will be injected here -->
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -1062,6 +1019,65 @@
     </button>
   </div>
   <script>
+    (function () {
+  // Set to "" if the API is on the same origin (reverse-proxied),
+  // or to your Cloud Run URL like "https://<service>-<hash>-a.run.app"
+  const API_BASE = "https://backend.ashwanthrkumar.in";
+
+  const grid = document.getElementById("blog-grid");
+  const FALLBACK_IMG = "../assets/images/resources/placeholder.jpg";
+
+  // Format like "Aug 2025"
+  function monthYear(iso) {
+    try {
+      return new Date(iso).toLocaleString("en-US", { month: "short", year: "numeric" });
+    } catch { return ""; }
+  }
+
+  function cardHtml(post, idx) {
+    const link = `/html/blog-detail.html?slug=${encodeURIComponent(post.slug)}`;
+    const img = post.imageUrl || FALLBACK_IMG;
+    const delay = 100 + idx * 100;
+    const wide = idx === 0;
+    const colClass = wide ? "col-xl-6 mb-7 mb-xl-0" : "col-md-6 col-xl-3 mb-7 mb-xl-0";
+    const imgClass = `resources-img ${wide ? "resources-img-first" : ""} position-relative overflow-hidden d-block`;
+
+    return `
+      <div class="${colClass}">
+        <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="${delay}" data-aos-duration="1000">
+          <a href="${link}" class="${imgClass}">
+            <img src="${img}" alt="${post.title || ""}" class="img-fluid">
+          </a>
+          <div class="resources-details">
+            <p class="mb-0">${monthYear(post.publishedAt) || ""}</p>
+            <h4 class="mb-0">${post.title || ""}</h4>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  async function loadLatest() {
+    try {
+      const res = await fetch(`${API_BASE}/api/blogs/latest?limit=3`, { cache: "no-store" });
+      if (!res.ok) throw new Error("Failed to fetch posts");
+      const posts = await res.json();
+
+      // Keep layout: first wide, next two narrow
+      grid.innerHTML = posts.slice(0, 3).map(cardHtml).join("");
+
+      // Re-trigger AOS if present
+      if (window.AOS && typeof AOS.refreshHard === "function") AOS.refreshHard();
+    } catch (err) {
+      console.error(err);
+      grid.innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-danger">Could not load blog posts right now.</div>
+        </div>`;
+    }
+  }
+
+  loadLatest();
+})();
     (function () {
       const form = document.getElementById('contactForm');
       const btn = document.getElementById('submitBtn');
