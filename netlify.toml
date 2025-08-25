@@ -3,10 +3,6 @@
 
 [[edge_functions]]
   function = "seo-blog"
-  path = "/html/blog-detail.html"
-
-[[edge_functions]]
-  function = "seo-blog"
   path = "/*"
 
 
