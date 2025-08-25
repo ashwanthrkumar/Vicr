@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +9,18 @@
   <link rel="icon" href="/assets/images/logos/favicon.svg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <style>
-    .object-fit-cover{object-fit:cover}
-    .badge-tag{background:#fff;color:#000;border:1px solid rgba(0,0,0,.125)}
+    .object-fit-cover {
+      object-fit: cover
+    }
+
+    .badge-tag {
+      background: #fff;
+      color: #000;
+      border: 1px solid rgba(0, 0, 0, .125)
+    }
   </style>
 </head>
+
 <body class="bg-light">
   <!-- Header / Breadcrumb -->
   <section class="bg-light-gray py-4 border-bottom bg-white">
@@ -95,52 +104,52 @@
   </section>
 
   <script>
-  (async function initBlogDetail(){
-    const API_BASE = "http://localhost:8080"; // "" for same-origin; else your Cloud Run URL
-    const qs = new URLSearchParams(location.search);
-    const slug = qs.get('slug');
-    if(!slug){
-      document.querySelector('[data-post-content]').innerHTML = '<div class="alert alert-warning">No post selected.</div>';
-      return;
-    }
-
-    const $ = (sel)=>document.querySelector(sel);
-
-    try{
-      const res = await fetch(`${API_BASE}/api/blogs/${encodeURIComponent(slug)}`,{cache:'no-store'});
-      if(!res.ok) throw new Error('Failed to load post');
-      const { post, prev, next, related } = await res.json();
-
-      document.querySelectorAll('[data-post-title]').forEach(el=>el.textContent = post.title);
-      $('[data-post-date]').textContent = new Date(post.publishedAt).toLocaleDateString('en-US',{day:'2-digit',month:'short',year:'numeric'});
-      if(post.excerpt) $('[data-post-excerpt]').textContent = post.excerpt;
-
-      const img = $('[data-post-image]');
-      if(img){ img.src = post.imageUrl || '/assets/images/resources/placeholder.jpg'; img.alt = post.title; }
-
-      $('[data-post-content]').innerHTML = post.contentHtml || '<p>Coming soon…</p>';
-
-      const tagsWrap = $('[data-post-tags]');
-      if(Array.isArray(post.tags)){
-        post.tags.forEach(t=>{
-          const span = document.createElement('span');
-          span.className = 'badge badge-tag';
-          span.textContent = t;
-          tagsWrap.appendChild(span);
-        });
+    (async function initBlogDetail() {
+      const API_BASE = "https://backend.ashwanthrkumar.in"; // "" for same-origin; else your Cloud Run URL
+      const qs = new URLSearchParams(location.search);
+      const slug = qs.get('slug');
+      if (!slug) {
+        document.querySelector('[data-post-content]').innerHTML = '<div class="alert alert-warning">No post selected.</div>';
+        return;
       }
 
-      const rt = post.readTimeMinutes || computeReadTimeFromHtml(post.contentHtml);
-      $('[data-reading-time]').textContent = `${rt} min read`;
+      const $ = (sel) => document.querySelector(sel);
 
-      setNav('[data-prev-link]','[data-prev-title]', prev);
-      setNav('[data-next-link]','[data-next-title]', next);
+      try {
+        const res = await fetch(`${API_BASE}/api/blogs/${encodeURIComponent(slug)}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to load post');
+        const { post, prev, next, related } = await res.json();
 
-      const relatedGrid = document.getElementById('related-grid');
-      relatedGrid.innerHTML = '';
-      (related||[]).slice(0,3).forEach((r,idx)=>{
-        const col = document.createElement('div'); col.className='col-md-4';
-        col.innerHTML = `
+        document.querySelectorAll('[data-post-title]').forEach(el => el.textContent = post.title);
+        $('[data-post-date]').textContent = new Date(post.publishedAt).toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+        if (post.excerpt) $('[data-post-excerpt]').textContent = post.excerpt;
+
+        const img = $('[data-post-image]');
+        if (img) { img.src = post.imageUrl || '/assets/images/resources/placeholder.jpg'; img.alt = post.title; }
+
+        $('[data-post-content]').innerHTML = post.contentHtml || '<p>Coming soon…</p>';
+
+        const tagsWrap = $('[data-post-tags]');
+        if (Array.isArray(post.tags)) {
+          post.tags.forEach(t => {
+            const span = document.createElement('span');
+            span.className = 'badge badge-tag';
+            span.textContent = t;
+            tagsWrap.appendChild(span);
+          });
+        }
+
+        const rt = post.readTimeMinutes || computeReadTimeFromHtml(post.contentHtml);
+        $('[data-reading-time]').textContent = `${rt} min read`;
+
+        setNav('[data-prev-link]', '[data-prev-title]', prev);
+        setNav('[data-next-link]', '[data-next-title]', next);
+
+        const relatedGrid = document.getElementById('related-grid');
+        relatedGrid.innerHTML = '';
+        (related || []).slice(0, 3).forEach((r, idx) => {
+          const col = document.createElement('div'); col.className = 'col-md-4';
+          col.innerHTML = `
           <a href="blog-detail.html?slug=${encodeURIComponent(r.slug)}" class="d-block text-decoration-none">
             <div class="ratio ratio-16x9 rounded-4 overflow-hidden mb-3">
               <img src="${r.imageUrl || '/assets/images/resources/placeholder.jpg'}" alt="${r.title}" class="w-100 h-100 object-fit-cover" loading="lazy">
@@ -148,41 +157,42 @@
             <div class="small text-muted mb-1">${formatMonthYear(r.publishedAt)}</div>
             <div class="fw-semibold">${r.title}</div>
           </a>`;
-        relatedGrid.appendChild(col);
-      });
+          relatedGrid.appendChild(col);
+        });
 
-      const postUrl = location.origin + location.pathname + location.search;
-      const tw = document.querySelector('[data-share-twitter]');
-      const li = document.querySelector('[data-share-linkedin]');
-      const cp = document.querySelector('[data-share-copy]');
-      if(tw) tw.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(postUrl)}`;
-      if(li) li.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
-      if(cp) cp.addEventListener('click', (e)=>{ e.preventDefault(); navigator.clipboard.writeText(postUrl).then(()=>{ cp.textContent='Copied!'; setTimeout(()=>cp.textContent='Copy link', 1200); }); });
+        const postUrl = location.origin + location.pathname + location.search;
+        const tw = document.querySelector('[data-share-twitter]');
+        const li = document.querySelector('[data-share-linkedin]');
+        const cp = document.querySelector('[data-share-copy]');
+        if (tw) tw.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(postUrl)}`;
+        if (li) li.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
+        if (cp) cp.addEventListener('click', (e) => { e.preventDefault(); navigator.clipboard.writeText(postUrl).then(() => { cp.textContent = 'Copied!'; setTimeout(() => cp.textContent = 'Copy link', 1200); }); });
 
-      ensureSeoMeta(post);
-    }catch(err){
-      console.error(err);
-      const container = document.querySelector('[data-post-content]');
-      if(container) container.innerHTML = `<div class="alert alert-danger">Failed to load this post.</div>`;
-    }
+        ensureSeoMeta(post);
+      } catch (err) {
+        console.error(err);
+        const container = document.querySelector('[data-post-content]');
+        if (container) container.innerHTML = `<div class="alert alert-danger">Failed to load this post.</div>`;
+      }
 
-    function setNav(linkSel,titleSel,data){
-      const link = document.querySelector(linkSel); const title = document.querySelector(titleSel);
-      if(!data){ link.classList.add('disabled'); link.removeAttribute('href'); if(title) title.textContent='—'; }
-      else { link.href = `blog-detail.html?slug=${encodeURIComponent(data.slug)}`; if(title) title.textContent = data.title; }
-    }
-    function computeReadTimeFromHtml(html){ if(!html) return 1; const text = html.replace(/<[^>]+>/g,' '); const words = text.trim().split(/\s+/).filter(Boolean).length; return Math.max(1, Math.ceil(words/200)); }
-    function formatMonthYear(iso){ try{ return new Date(iso).toLocaleString('en-US',{month:'short',year:'numeric'});}catch{return ''} }
-    function ensureSeoMeta(post){
-      setMeta('og:title', post.title);
-      setMeta('og:type', 'article');
-      setMeta('og:image', post.imageUrl);
-      setMeta('og:description', post.excerpt||'');
-      setMeta('twitter:card', 'summary_large_image');
-      document.title = `${post.title} — Ashwanth R Kumar`;
-      function setMeta(name, content){ if(!content) return; let el = document.querySelector(`meta[property='${name}'], meta[name='${name}']`); if(!el){ el=document.createElement('meta'); el.setAttribute(name.startsWith('og:')?'property':'name', name); document.head.appendChild(el);} el.setAttribute('content', content); }
-    }
-  })();
+      function setNav(linkSel, titleSel, data) {
+        const link = document.querySelector(linkSel); const title = document.querySelector(titleSel);
+        if (!data) { link.classList.add('disabled'); link.removeAttribute('href'); if (title) title.textContent = '—'; }
+        else { link.href = `blog-detail.html?slug=${encodeURIComponent(data.slug)}`; if (title) title.textContent = data.title; }
+      }
+      function computeReadTimeFromHtml(html) { if (!html) return 1; const text = html.replace(/<[^>]+>/g, ' '); const words = text.trim().split(/\s+/).filter(Boolean).length; return Math.max(1, Math.ceil(words / 200)); }
+      function formatMonthYear(iso) { try { return new Date(iso).toLocaleString('en-US', { month: 'short', year: 'numeric' }); } catch { return '' } }
+      function ensureSeoMeta(post) {
+        setMeta('og:title', post.title);
+        setMeta('og:type', 'article');
+        setMeta('og:image', post.imageUrl);
+        setMeta('og:description', post.excerpt || '');
+        setMeta('twitter:card', 'summary_large_image');
+        document.title = `${post.title} — Ashwanth R Kumar`;
+        function setMeta(name, content) { if (!content) return; let el = document.querySelector(`meta[property='${name}'], meta[name='${name}']`); if (!el) { el = document.createElement('meta'); el.setAttribute(name.startsWith('og:') ? 'property' : 'name', name); document.head.appendChild(el); } el.setAttribute('content', content); }
+      }
+    })();
   </script>
 </body>
+
 </html>

@@ -1,108 +1,122 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog — Ashwanth R Kumar</title>
-<meta name="description" content="Latest posts from Ashwanth R Kumar — software, design, and creator notes.">
-<link rel="icon" href="/assets/images/logos/favicon.svg">
-<!-- Bootstrap & AOS (assumed already in your site); include if not present -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-<style>
-.object-fit-cover{object-fit:cover}
-.resources-img-first{height:100%;}
-.badge-tag{background:#fff;color:#000;border:1px solid rgba(0,0,0,.125)}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog — Ashwanth R Kumar</title>
+    <meta name="description" content="Latest posts from Ashwanth R Kumar — software, design, and creator notes.">
+    <link rel="icon" href="/assets/images/logos/favicon.svg">
+    <!-- Bootstrap & AOS (assumed already in your site); include if not present -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+        .object-fit-cover {
+            object-fit: cover
+        }
+
+        .resources-img-first {
+            height: 100%;
+        }
+
+        .badge-tag {
+            background: #fff;
+            color: #000;
+            border: 1px solid rgba(0, 0, 0, .125)
+        }
+    </style>
 </head>
+
 <body class="bg-light">
-<!-- Hero/Header (optional) -->
-<header class="py-5 border-bottom bg-white">
-<div class="container">
-<h1 class="display-6 mb-0">Latest from my desk</h1>
-<p class="text-muted mb-0">Thoughts, experiments, and stories — coding, design, and everything in between.</p>
-</div>
-</header>
+    <!-- Hero/Header (optional) -->
+    <header class="py-5 border-bottom bg-white">
+        <div class="container">
+            <h1 class="display-6 mb-0">Latest from my desk</h1>
+            <p class="text-muted mb-0">Thoughts, experiments, and stories — coding, design, and everything in between.
+            </p>
+        </div>
+    </header>
 
 
-<!-- Blog Grid Section -->
-<section class="blog bg-light-gray py-5 py-lg-6">
-<div class="container">
-<div class="row" id="blog-grid">
-<!-- Cards injected here -->
-</div>
+    <!-- Blog Grid Section -->
+    <section class="blog bg-light-gray py-5 py-lg-6">
+        <div class="container">
+            <div class="row" id="blog-grid">
+                <!-- Cards injected here -->
+            </div>
 
 
-<!-- Pagination (simple: Load more) -->
-<div class="text-center mt-4">
-<button id="load-more" class="btn btn-outline-dark d-none">Load more</button>
-</div>
-</div>
-</section>
+            <!-- Pagination (simple: Load more) -->
+            <div class="text-center mt-4">
+                <button id="load-more" class="btn btn-outline-dark d-none">Load more</button>
+            </div>
+        </div>
+    </section>
 
 
-<script>
-(function(){
-const API_BASE = "http://localhost:8080"; // "" for same-origin proxy, or "https://<your-cloud-run>.a.run.app"
-const grid = document.getElementById('blog-grid');
-const loadMoreBtn = document.getElementById('load-more');
+    <script>
+        (function () {
+            const API_BASE = "https://backend.ashwanthrkumar.in"; // "" for same-origin proxy, or "https://<your-cloud-run>.a.run.app"
+            const grid = document.getElementById('blog-grid');
+            const loadMoreBtn = document.getElementById('load-more');
 
 
-// Basic cursor-based pagination using publishedAt; adjust if you add server paging
-let page = 0; // naive demo paging (reload latest each time); replace with real cursor when backend supports it
+            // Basic cursor-based pagination using publishedAt; adjust if you add server paging
+            let page = 0; // naive demo paging (reload latest each time); replace with real cursor when backend supports it
 
 
-function formatMonthYear(iso){try{return new Date(iso).toLocaleString('en-US',{month:'short',year:'numeric'})}catch{return ''}}
+            function formatMonthYear(iso) { try { return new Date(iso).toLocaleString('en-US', { month: 'short', year: 'numeric' }) } catch { return '' } }
 
 
-async function fetchLatest(limit=9){
-const res = await fetch(`${API_BASE}/api/blogs/latest?limit=${limit}`,{cache:'no-store'});
-if(!res.ok) throw new Error('Failed to fetch latest');
-return res.json();
-}
+            async function fetchLatest(limit = 9) {
+                const res = await fetch(`${API_BASE}/api/blogs/latest?limit=${limit}`, { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to fetch latest');
+                return res.json();
+            }
 
 
-function renderPosts(posts){
-grid.innerHTML = '';
-// Layout: first item wide (6 cols), next two quarter (3 cols), rest 3-cols
-posts.forEach((p, idx)=>{
-const col = document.createElement('div');
-let cls = 'col-md-6 col-xl-3 mb-7 mb-xl-0';
-if(idx===0) cls = 'col-xl-6 mb-7 mb-xl-0';
-else if(idx===1 || idx===2) cls = 'col-md-6 col-xl-3 mb-7 mb-xl-0';
-col.className = cls;
-const delay = 100 + (idx*100);
-const link = `blog-detail.html?slug=${encodeURIComponent(p.slug)}`;
-const img = p.imageUrl || '/assets/images/resources/placeholder.jpg';
-const monthYear = formatMonthYear(p.publishedAt);
-col.innerHTML = `
+            function renderPosts(posts) {
+                grid.innerHTML = '';
+                // Layout: first item wide (6 cols), next two quarter (3 cols), rest 3-cols
+                posts.forEach((p, idx) => {
+                    const col = document.createElement('div');
+                    let cls = 'col-md-6 col-xl-3 mb-7 mb-xl-0';
+                    if (idx === 0) cls = 'col-xl-6 mb-7 mb-xl-0';
+                    else if (idx === 1 || idx === 2) cls = 'col-md-6 col-xl-3 mb-7 mb-xl-0';
+                    col.className = cls;
+                    const delay = 100 + (idx * 100);
+                    const link = `blog-detail.html?slug=${encodeURIComponent(p.slug)}`;
+                    const img = p.imageUrl || '/assets/images/resources/placeholder.jpg';
+                    const monthYear = formatMonthYear(p.publishedAt);
+                    col.innerHTML = `
 <div class="resources d-flex flex-column gap-3" data-aos="fade-up" data-aos-delay="${delay}" data-aos-duration="800">
-<a href="${link}" class="resources-img ${idx===0?'resources-img-first':''} position-relative overflow-hidden d-block rounded-4">
-<img src="${img}" alt="${p.title}" class="img-fluid w-100 object-fit-cover" style="height:${idx===0? '380px':'220px'}">
+<a href="${link}" class="resources-img ${idx === 0 ? 'resources-img-first' : ''} position-relative overflow-hidden d-block rounded-4">
+<img src="${img}" alt="${p.title}" class="img-fluid w-100 object-fit-cover" style="height:${idx === 0 ? '380px' : '220px'}">
 </a>
 <div class="resources-details">
 <p class="mb-1 small text-muted">${monthYear || ''}</p>
 <h4 class="mb-1"><a class="text-decoration-none text-dark" href="${link}">${p.title}</a></h4>
-${p.excerpt ? `<p class="mb-0 text-muted">${p.excerpt}</p>`: ''}
+${p.excerpt ? `<p class="mb-0 text-muted">${p.excerpt}</p>` : ''}
 </div>
 </div>`;
-grid.appendChild(col);
-});
-}
+                    grid.appendChild(col);
+                });
+            }
 
 
-(async function init(){
-try{
-const posts = await fetchLatest(9);
-renderPosts(posts);
-if (window.AOS) AOS.init();
-}catch(e){
-console.error(e);
-grid.innerHTML = `<div class="col-12"><div class="alert alert-danger">Could not load posts.</div></div>`;
-}
-})();
-})();
-</script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+            (async function init() {
+                try {
+                    const posts = await fetchLatest(9);
+                    renderPosts(posts);
+                    if (window.AOS) AOS.init();
+                } catch (e) {
+                    console.error(e);
+                    grid.innerHTML = `<div class="col-12"><div class="alert alert-danger">Could not load posts.</div></div>`;
+                }
+            })();
+        })();
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 </body>
+
 </html>
