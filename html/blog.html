@@ -1,258 +1,108 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ashwanth R Kumar | Software Developer & Creator</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.svg" />
-  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Ashwanth R Kumar</title>
+<meta name="description" content="Latest posts from Ashwanth R Kumar — software, design, and creator notes.">
+<link rel="icon" href="/assets/images/logos/favicon.svg">
+<!-- Bootstrap & AOS (assumed already in your site); include if not present -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<style>
+.object-fit-cover{object-fit:cover}
+.resources-img-first{height:100%;}
+.badge-tag{background:#fff;color:#000;border:1px solid rgba(0,0,0,.125)}
+</style>
 </head>
-
-<body>
-
-  <!-- Header -->
-  <header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
-    <div class="container">
-      <div class="header-wrapper d-flex align-items-center justify-content-between">
-        <div class="logo">
-          <a href="index.html" class="logo-white">
-            <img src="../assets/images/logos/logo-white.svg" alt="logo" class="img-fluid">
-          </a>
-          <a href="index.html" class="logo-dark">
-            <img src="../assets/images/logos/logo-dark.svg" alt="logo" class="img-fluid">
-          </a>
-        </div>
-        <div class="d-flex align-items-center gap-4">
-
-          <div class="btn-group">
-            <button
-              class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
-              type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-              <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end p-4">
-              <div class="d-flex flex-column gap-6">
-                <div class="hstack justify-content-between border-bottom pb-6">
-                  <p class="mb-0 fs-5 text-dark">Menu</p>
-                  <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                  <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
-                    <li class="header-item">
-                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
-                          src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">Home</a>
-                    </li>
-                    <li class="header-item">
-                      <a href="about-us.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
-                          src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">About</a>
-                    </li>
-                    <li class="header-item">
-                      <a href="projects.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
-                          src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">Projects</a>
-                    </li>
-                    <li class="header-item">
-                      <a href="blog.html" aria-current="true"
-                        class="header-link active hstack gap-2 fs-7 fw-bold text-dark"><img
-                          src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">Blog</a>
-                    </li>
-                    <li class="header-item">
-                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
-                          src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">Services</a>
-                    </li>
-                    <li class="header-item">
-                      <a href="contact.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
-                          src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">Contact</a>
-                    </li>
-                    <li class="header-item">
-                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
-                          src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">Docs</a>
-                    </li>
-                  </ul>
-                  <div class="hstack gap-3">
-                    <a href="sign-in.html"
-                      class="btn btn-outline-light fs-6 bg-white px-3 py-2 text-dark w-50 hstack justify-content-center">Sign
-                      In</a>
-                    <a href="sign-up.html"
-                      class="btn btn-dark text-white fs-6 bg-dark px-3 py-2 w-50 hstack justify-content-center">Sign
-                      Up</a>
-                  </div>
-                </div>
-                <div>
-                  <a class="text-dark" href="tel:+1-212-456-7890">+1-212-456-7890</a>
-                  <a class="fs-8 text-dark fw-bold" href="mailto:info@wrappixel.com">info@wrappixel.com</a>
-                </div>
-              </div>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!--  Page Wrapper -->
-  <div class="page-wrapper overflow-hidden">
-
-    <!--  Banner Section -->
-    <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
-      style="background-image: url(../assets/images/backgrounds/blog-banner.jpg);">
-      <div class="container">
-        <div class="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
-          <div class="row align-items-center">
-            <div class="col-xl-4">
-              <div class="d-flex align-items-center gap-4" data-aos="fade-up" data-aos-delay="100"
-                data-aos-duration="1000">
-                <img src="../assets/images/svgs/primary-leaf.svg" alt="" class="img-fluid animate-spin">
-                <p class="mb-0 text-white fs-5 text-opacity-70">Excited to <span class="text-primary">begin something
-                    amazing?</span>Get in touch—we'd love to connect with you!</p>
-              </div>
-            </div>
-          </div>
-          <div class="d-flex align-items-end gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-            <h1 class="mb-0 fs-16 text-white lh-1">Blog</h1>
-            <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill">
-              <span class="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
-                <iconify-icon icon="lucide:arrow-up-right" class="fs-8 text-dark"></iconify-icon>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--  Blog Section -->
-    <section class="blog-section py-5 py-lg-11 py-xl-12">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 mb-7">
-            <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="100"
-              data-aos-duration="1000">
-              <a href="blog-detail.html"
-                class="resources-img resources-img-blog position-relative overflow-hidden d-block">
-                <img src="../assets/images/resources/resources-1.jpg" alt="resources" class="img-fluid">
-              </a>
-              <div class="resources-details">
-                <p class="mb-0">Dec 24, 2025</p>
-                <h4 class="mb-0">A campaign that connects</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mb-7">
-            <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="200"
-              data-aos-duration="1000">
-              <a href="blog-detail.html"
-                class="resources-img resources-img-blog position-relative overflow-hidden d-block">
-                <img src="../assets/images/resources/resources-2.jpg" alt="resources" class="img-fluid">
-              </a>
-              <div class="resources-details">
-                <p class="mb-0">Dec 24, 2025</p>
-                <h4 class="mb-0">An breaking boundaries our latest brand redesign</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mb-7">
-            <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="300"
-              data-aos-duration="1000">
-              <a href="blog-detail.html"
-                class="resources-img resources-img-blog position-relative overflow-hidden d-block">
-                <img src="../assets/images/resources/resources-3.jpg" alt="resources" class="img-fluid">
-              </a>
-              <div class="resources-details">
-                <p class="mb-0">Dec 24, 2025</p>
-                <h4 class="mb-0">Recognized for design</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mb-7">
-            <div class="resources d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="400"
-              data-aos-duration="1000">
-              <a href="blog-detail.html"
-                class="resources-img resources-img-blog position-relative overflow-hidden d-block">
-                <img src="../assets/images/services/services-img-1.jpg" alt="resources" class="img-fluid">
-              </a>
-              <div class="resources-details">
-                <p class="mb-0">Dec 24, 2025</p>
-                <h4 class="mb-0">The Modern Lens Perspectives on Culture & Trends</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-5 mb-8 mb-xl-0">
-          <div class="d-flex flex-column gap-8 pe-xl-5">
-            <h2 class="mb-0 text-white">Build something together?</h2>
-            <div class="d-flex flex-column gap-2">
-              <a href="https://www.wrappixel.com/" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
-                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
-                info@wrappixel.com
-              </a>
-              <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank"
-                class="link-hover hstack gap-3 text-white fs-5">
-                <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
-                info@wrappixel.com
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
-          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
-            <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
-            <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
-            <li><a class="link-hover fs-5 text-white" id="services" href="#services">Services</a></li>
-            <li><a class="link-hover fs-5 text-white" href="projects.html">Work</a></li>
-            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
-            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a class="link-hover fs-5 text-white" href="404.html">Error 404</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
-          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
-            <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
-            <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
-            <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
-          <p class="mb-0 text-white text-opacity-70 text-md-end">© Studiova copyright 2025</p>
-        </div>
-      </div>
-    </div>
-    <p class="mb-0 text-white text-opacity-70 text-md-center mt-10">Distributed by <a class="text-white"
-        href="https://www.themewagon.com" target="_blank">ThemeWagon</a></p>
-  </footer>
-
-  <div class="get-template hstack gap-2">
-
-    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0"
-      id="scrollToTopBtn">
-      <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
-    </button>
-  </div>
+<body class="bg-light">
+<!-- Hero/Header (optional) -->
+<header class="py-5 border-bottom bg-white">
+<div class="container">
+<h1 class="display-6 mb-0">Latest from my desk</h1>
+<p class="text-muted mb-0">Thoughts, experiments, and stories — coding, design, and everything in between.</p>
+</div>
+</header>
 
 
-  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../assets/libs/aos-master/dist/aos.js"></script>
-  <script src="../assets/js/custom.js"></script>
-  <!-- solar icons -->
-  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+<!-- Blog Grid Section -->
+<section class="blog bg-light-gray py-5 py-lg-6">
+<div class="container">
+<div class="row" id="blog-grid">
+<!-- Cards injected here -->
+</div>
+
+
+<!-- Pagination (simple: Load more) -->
+<div class="text-center mt-4">
+<button id="load-more" class="btn btn-outline-dark d-none">Load more</button>
+</div>
+</div>
+</section>
+
+
+<script>
+(function(){
+const API_BASE = "http://localhost:8080"; // "" for same-origin proxy, or "https://<your-cloud-run>.a.run.app"
+const grid = document.getElementById('blog-grid');
+const loadMoreBtn = document.getElementById('load-more');
+
+
+// Basic cursor-based pagination using publishedAt; adjust if you add server paging
+let page = 0; // naive demo paging (reload latest each time); replace with real cursor when backend supports it
+
+
+function formatMonthYear(iso){try{return new Date(iso).toLocaleString('en-US',{month:'short',year:'numeric'})}catch{return ''}}
+
+
+async function fetchLatest(limit=9){
+const res = await fetch(`${API_BASE}/api/blogs/latest?limit=${limit}`,{cache:'no-store'});
+if(!res.ok) throw new Error('Failed to fetch latest');
+return res.json();
+}
+
+
+function renderPosts(posts){
+grid.innerHTML = '';
+// Layout: first item wide (6 cols), next two quarter (3 cols), rest 3-cols
+posts.forEach((p, idx)=>{
+const col = document.createElement('div');
+let cls = 'col-md-6 col-xl-3 mb-7 mb-xl-0';
+if(idx===0) cls = 'col-xl-6 mb-7 mb-xl-0';
+else if(idx===1 || idx===2) cls = 'col-md-6 col-xl-3 mb-7 mb-xl-0';
+col.className = cls;
+const delay = 100 + (idx*100);
+const link = `blog-detail.html?slug=${encodeURIComponent(p.slug)}`;
+const img = p.imageUrl || '/assets/images/resources/placeholder.jpg';
+const monthYear = formatMonthYear(p.publishedAt);
+col.innerHTML = `
+<div class="resources d-flex flex-column gap-3" data-aos="fade-up" data-aos-delay="${delay}" data-aos-duration="800">
+<a href="${link}" class="resources-img ${idx===0?'resources-img-first':''} position-relative overflow-hidden d-block rounded-4">
+<img src="${img}" alt="${p.title}" class="img-fluid w-100 object-fit-cover" style="height:${idx===0? '380px':'220px'}">
+</a>
+<div class="resources-details">
+<p class="mb-1 small text-muted">${monthYear || ''}</p>
+<h4 class="mb-1"><a class="text-decoration-none text-dark" href="${link}">${p.title}</a></h4>
+${p.excerpt ? `<p class="mb-0 text-muted">${p.excerpt}</p>`: ''}
+</div>
+</div>`;
+grid.appendChild(col);
+});
+}
+
+
+(async function init(){
+try{
+const posts = await fetchLatest(9);
+renderPosts(posts);
+if (window.AOS) AOS.init();
+}catch(e){
+console.error(e);
+grid.innerHTML = `<div class="col-12"><div class="alert alert-danger">Could not load posts.</div></div>`;
+}
+})();
+})();
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 </body>
-
 </html>
