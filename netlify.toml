@@ -1,0 +1,11 @@
+[build]
+  publish = "."   # your repo serves static from root
+
+[[edge_functions]]
+  function = "seo-blog"
+  path = "/html/blog-detail.html"
+
+# Optional pretty URLs:
+[[edge_functions]]
+  function = "seo-blog"
+  path = "/blog/*"
