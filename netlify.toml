@@ -1,11 +1,17 @@
 [build]
-  publish = "."   # your repo serves static from root
+  publish = "."
 
 [[edge_functions]]
   function = "seo-blog"
   path = "/html/blog-detail.html"
 
-# Optional pretty URLs:
 [[edge_functions]]
   function = "seo-blog"
   path = "/blog/*"
+
+# Optional: proxy /api/* so your page JS can use relative URLs
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://backend.ashwanthrkumar.in/api/:splat"
+#   status = 200
+#   force = true
