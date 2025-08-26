@@ -163,7 +163,7 @@
     }
 
     &:not(.collapsed)::after {
-        background-color: var(--bs-primary);
+        background-color: var(--bs-primary1);
     }
 
     &:not(.collapsed) {
@@ -243,7 +243,7 @@
     }
 }
 
-.sign-in{
+.sign-in {
     max-width: 520px;
     width: 100%;
 }

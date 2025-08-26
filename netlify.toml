@@ -1,12 +1,11 @@
 [build]
   publish = "."
 
-# IMPORTANT: use a glob that matches the path
+# IMPORTANT: the first path includes a * so it matches ?slug=...
 [[edge_functions]]
   function = "seo-blog"
   path = "/html/blog-detail.html*"
 
-# Optional pretty route once the above works:
-# [[edge_functions]]
-#   function = "seo-blog"
-#   path = "/blog/*"
+[[edge_functions]]
+  function = "seo-blog"
+  path = "/blog/*"

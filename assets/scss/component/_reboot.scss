@@ -13,12 +13,12 @@ a {
 }
 
 a:hover {
-    color: var(--bs-primary);
+    color: var(--bs-primary1);
 }
 
 .link-hover {
     &:hover {
-        color: var(--bs-primary) !important;
+        color: var(--bs-primary1) !important;
     }
 }
 
