@@ -153,48 +153,90 @@
   <!-- Footer (unchanged) -->
   <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
     <div class="container">
-      <div class="row">
+      <div class="row g-4">
+        <!-- Pitch + quick actions -->
         <div class="col-xl-5 mb-8 mb-xl-0">
           <div class="d-flex flex-column gap-8 pe-xl-5">
-            <h2 class="mb-0 text-white">Build something together?</h2>
+            <h2 class="mb-0 text-white">Transforming ideas into reality.</h2>
             <div class="d-flex flex-column gap-2">
-              <a href="https://www.wrappixel.com/" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
-                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
-                info@wrappixel.com
+              <a href="mailto:hello@ashwanthrkumar.in" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:mail" class="fs-7 text-primary"></iconify-icon>
+                hello@ashwanthrkumar.in
               </a>
-              <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank"
-                class="link-hover hstack gap-3 text-white fs-5">
-                <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
-                info@wrappixel.com
+              <a href="#contact" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:calendar" class="fs-7 text-primary"></iconify-icon>
+                Let’s talk — contact form
               </a>
             </div>
           </div>
         </div>
+
+        <!-- Site nav -->
         <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
           <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
             <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
-            <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
-            <li><a class="link-hover fs-5 text-white" id="services" href="#services">Services</a></li>
-            <li><a class="link-hover fs-5 text-white" href="projects.html">Work</a></li>
-            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
-            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a class="link-hover fs-5 text-white" href="404.html">Error 404</a></li>
+            <li><a class="link-hover fs-5 text-white" href="about.html">About</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#skills">Skills</a></li>
+            <li><a class="link-hover fs-5 text-white" href="projects.html">Projects</a></li>
+            <li><a class="link-hover fs-5 text-white" href="blog.html">Blog</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#contact">Contact</a></li>
           </ul>
         </div>
+
+        <!-- Policies -->
         <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
           <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
-            <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
-            <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
-            <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
+            <li><a class="link-hover fs-5 text-white" href="404.html">404</a></li>
           </ul>
         </div>
+
+        <!-- Socials -->
         <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
-          <p class="mb-0 text-white text-opacity-70 text-md-end">© Studiova copyright 2025</p>
+          <ul class="footer-menu list-unstyled mb-3 d-flex gap-3 justify-content-xl-end">
+            <li>
+              <a class="link-hover fs-5 text-white d-inline-flex align-items-center gap-2"
+                href="https://www.linkedin.com/in/ashwanthrkumar" target="_blank" rel="noopener">
+                <iconify-icon icon="lucide:linkedin" class="fs-7 text-primary"></iconify-icon> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a class="link-hover fs-5 text-white d-inline-flex align-items-center gap-2"
+                href="https://github.com/ashwanthrkumar" target="_blank" rel="noopener">
+                <iconify-icon icon="lucide:github" class="fs-7 text-primary"></iconify-icon> GitHub
+              </a>
+            </li>
+            <li>
+              <a class="link-hover fs-5 text-white d-inline-flex align-items-center gap-2"
+                href="https://www.behance.net/" target="_blank" rel="noopener">
+                <iconify-icon icon="lucide:palette" class="fs-7 text-primary"></iconify-icon> Behance
+              </a>
+            </li>
+          </ul>
+          <p class="mb-0 text-white text-opacity-70 text-xl-end">
+            © <span id="year"></span> ViCR · Ashwanth R Kumar
+          </p>
         </div>
       </div>
     </div>
-    <p class="mb-0 text-white text-opacity-70 text-md-center mt-10">Distributed by <a class="text-white"
-        href="https://www.themewagon.com" target="_blank">ThemeWagon</a></p>
+
+    <!-- tiny bottom bar -->
+    <div class="container mt-10">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="#top" class="link-hover text-white d-inline-flex align-items-center gap-2">
+          <iconify-icon icon="lucide:arrow-up" class="fs-7 text-primary"></iconify-icon> Back to top
+        </a>
+        <!-- Optional attribution (remove if not needed)
+      <p class="mb-0 text-white text-opacity-50">Theme base adapted from ThemeWagon</p>
+      -->
+      </div>
+    </div>
+
+    <script>
+      // keep year current
+      document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+    </script>
   </footer>
 
   <div class="get-template hstack gap-2">
