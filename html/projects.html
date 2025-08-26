@@ -243,6 +243,13 @@
 
 
 <script>
+    function bootAOS() {
+    if (window.AOS) {
+      AOS.init({ once: true });
+      // after dynamic render:
+      setTimeout(() => AOS.refreshHard(), 50);
+    }
+  }
   function normalizeProjects(raw) {
     if (Array.isArray(raw)) return raw;
     if (raw && Array.isArray(raw.data)) return raw.data;
@@ -325,18 +332,12 @@
           </div>`;
       }).join('');
 
-      // Ensure clicking anywhere on card goes to detail
-      document.querySelectorAll('.portfolio .stretched-link').forEach(a => {
-        a.addEventListener('click', (e) => {
-          // Let the anchor navigate normally
-        });
-      });
+      // Re-init AOS for the newly injected elements
+      bootAOS();
 
-      if (window.AOS) AOS.refresh();
     } catch (err) {
       console.error('Projects load error:', err);
       if (statusEl) statusEl.remove();
-      // Helpful message for common cases
       const note = /Failed to fetch|NetworkError/i.test(err.message)
         ? 'Network/CORS issue. Make sure the API is reachable and allows your domain.'
         : err.message;
@@ -344,7 +345,10 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', loadProjects);
+  document.addEventListener('DOMContentLoaded', () => {
+    bootAOS();       // init for any static bits
+    loadProjects();  // then load dynamic projects
+  });
 </script>
 
 
