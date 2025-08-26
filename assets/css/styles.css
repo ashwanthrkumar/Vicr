@@ -97,8 +97,8 @@
   --bs-link-color: #25C6D1;
   --bs-link-color-rgb: 31, 42, 46;
   --bs-link-decoration: underline;
-  --bs-link-hover-color: #32226C;
-  --bs-link-hover-color-rgb: 193, 255, 114;
+  --bs-link-hover-color: #25C6D1;
+  --bs-link-hover-color-rgb: 37, 198, 209;
   --bs-code-color: #d63384;
   --bs-highlight-color: rgba(31, 42, 46, 0.7);
   --bs-highlight-bg: #fff3cd;
@@ -19639,7 +19639,7 @@ a:hover {
 }
 
 .link-hover:hover {
-  color: var(--bs-primary1) !important;
+  color: var(--bs-link-hover-color) !important;
 }
 
 ul {
