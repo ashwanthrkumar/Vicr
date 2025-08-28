@@ -55,14 +55,12 @@
                       <a href="blog.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">Blog</a>
                     </li>
                     <li class="header-item">
-                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">Services</a>
+                      <a href="vicr.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">Explore ViCR</a>
                     </li>
                     <li class="header-item">
                       <a href="index.html#contact" class="header-link hstack gap-2 fs-7 fw-bold text-dark">Contact</a>
                     </li>
-                    <li class="header-item">
-                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">Docs</a>
-                    </li>
+
                   </ul>
                   <!-- <div class="hstack gap-3">
                     <a href="sign-in.html"
@@ -118,19 +116,19 @@
 
 
     <!--  Project Section -->
-<!-- Project Section -->
-<section class="project py-5 py-lg-11 py-xl-12">
-  <div class="container">
-    <div class="row" id="projectsContainer">
-      <div class="col-12">
-        <div id="projectsStatus" class="text-center py-5">
-          <div class="spinner-border" role="status" aria-label="Loading projects"></div>
-          <div class="mt-3">Loading projects…</div>
+    <!-- Project Section -->
+    <section class="project py-5 py-lg-11 py-xl-12">
+      <div class="container">
+        <div class="row" id="projectsContainer">
+          <div class="col-12">
+            <div id="projectsStatus" class="text-center py-5">
+              <div class="spinner-border" role="status" aria-label="Loading projects"></div>
+              <div class="mt-3">Loading projects…</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
   </div>
@@ -147,7 +145,7 @@
                 <iconify-icon icon="lucide:mail" class="fs-7 text-primary"></iconify-icon>
                 hello@ashwanthrkumar.in
               </a>
-              <a href="#contact" class="link-hover hstack gap-3 text-white fs-5">
+              <a href="index.html#contact" class="link-hover hstack gap-3 text-white fs-5">
                 <iconify-icon icon="lucide:calendar" class="fs-7 text-primary"></iconify-icon>
                 Let’s talk — contact form
               </a>
@@ -160,21 +158,15 @@
           <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
             <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
             <li><a class="link-hover fs-5 text-white" href="about.html">About</a></li>
-            <li><a class="link-hover fs-5 text-white" href="#skills">Skills</a></li>
+            <li><a class="link-hover fs-5 text-white" href="vicr.html">Explore ViCr</a></li>
             <li><a class="link-hover fs-5 text-white" href="projects.html">Projects</a></li>
             <li><a class="link-hover fs-5 text-white" href="blog.html">Blog</a></li>
-            <li><a class="link-hover fs-5 text-white" href="#contact">Contact</a></li>
+            <li><a class="link-hover fs-5 text-white" href="index.html#contact">Contact</a></li>
           </ul>
         </div>
 
         <!-- Policies -->
-        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
-          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
-            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
-            <li><a class="link-hover fs-5 text-white" href="404.html">404</a></li>
-          </ul>
-        </div>
+
 
         <!-- Socials -->
         <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
@@ -242,76 +234,76 @@
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
 
-<script>
+  <script>
     function bootAOS() {
-    if (window.AOS) {
-      AOS.init({ once: true });
-      // after dynamic render:
-      setTimeout(() => AOS.refreshHard(), 50);
+      if (window.AOS) {
+        AOS.init({ once: true });
+        // after dynamic render:
+        setTimeout(() => AOS.refreshHard(), 50);
+      }
     }
-  }
-  function normalizeProjects(raw) {
-    if (Array.isArray(raw)) return raw;
-    if (raw && Array.isArray(raw.data)) return raw.data;
-    if (raw && Array.isArray(raw.results)) return raw.results;
-    return [];
-  }
+    function normalizeProjects(raw) {
+      if (Array.isArray(raw)) return raw;
+      if (raw && Array.isArray(raw.data)) return raw.data;
+      if (raw && Array.isArray(raw.results)) return raw.results;
+      return [];
+    }
 
-  function renderEmpty() {
-    const container = document.getElementById('projectsContainer');
-    container.innerHTML = `
+    function renderEmpty() {
+      const container = document.getElementById('projectsContainer');
+      container.innerHTML = `
       <div class="col-12 text-center py-6">
         <h3 class="mb-2">No projects yet</h3>
         <p class="text-muted mb-0">Check back soon — I’m adding new builds.</p>
       </div>`;
-  }
+    }
 
-  function renderError(message) {
-    const container = document.getElementById('projectsContainer');
-    container.innerHTML = `
+    function renderError(message) {
+      const container = document.getElementById('projectsContainer');
+      container.innerHTML = `
       <div class="col-12">
         <div class="alert alert-danger" role="alert">
           <strong>Couldn’t load projects.</strong> ${message || 'Please try again.'}
         </div>
       </div>`;
-  }
+    }
 
-  function getImage(p) {
-    return p.imageUrl || p.image || p.coverUrl || p.thumbnail || '../assets/images/portfolio/placeholder.png';
-  }
+    function getImage(p) {
+      return p.imageUrl || p.image || p.coverUrl || p.thumbnail || '../assets/images/portfolio/placeholder.png';
+    }
 
-  function getTags(p) {
-    if (Array.isArray(p.tags)) return p.tags;
-    if (typeof p.tags === 'string') return p.tags.split(',').map(s => s.trim()).filter(Boolean);
-    return [];
-  }
+    function getTags(p) {
+      if (Array.isArray(p.tags)) return p.tags;
+      if (typeof p.tags === 'string') return p.tags.split(',').map(s => s.trim()).filter(Boolean);
+      return [];
+    }
 
-  async function loadProjects() {
-    const statusEl = document.getElementById('projectsStatus');
-    try {
-      const res = await fetch('https://backend.ashwanthrkumar.in/api/projects/public', {
-        cache: 'no-store',
-        mode: 'cors',
-        headers: { 'Accept': 'application/json' }
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    async function loadProjects() {
+      const statusEl = document.getElementById('projectsStatus');
+      try {
+        const res = await fetch('https://backend.ashwanthrkumar.in/api/projects/public', {
+          cache: 'no-store',
+          mode: 'cors',
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-      const raw = await res.json();
-      const projects = normalizeProjects(raw);
+        const raw = await res.json();
+        const projects = normalizeProjects(raw);
 
-      if (statusEl) statusEl.remove();
-      const container = document.getElementById('projectsContainer');
+        if (statusEl) statusEl.remove();
+        const container = document.getElementById('projectsContainer');
 
-      if (!projects.length) {
-        renderEmpty();
-        return;
-      }
+        if (!projects.length) {
+          renderEmpty();
+          return;
+        }
 
-      container.innerHTML = projects.map((p, i) => {
-        const id = p.id || p._id || p.slug || p.uuid;
-        const href = id ? `projects-detail.html?id=${encodeURIComponent(id)}` : `projects-detail.html`;
-        const tags = getTags(p).map(t => `<span class="badge text-dark border">${t}</span>`).join('');
-        return `
+        container.innerHTML = projects.map((p, i) => {
+          const id = p.id || p._id || p.slug || p.uuid;
+          const href = id ? `projects-detail.html?id=${encodeURIComponent(id)}` : `projects-detail.html`;
+          const tags = getTags(p).map(t => `<span class="badge text-dark border">${t}</span>`).join('');
+          return `
           <div class="col-lg-6 mb-7">
             <div class="portfolio d-flex flex-column gap-6" data-aos="fade-up" data-aos-delay="${100 * ((i % 6) + 1)}" data-aos-duration="1000">
               <div class="portfolio-img position-relative overflow-hidden">
@@ -330,26 +322,26 @@
               </div>
             </div>
           </div>`;
-      }).join('');
+        }).join('');
 
-      // Re-init AOS for the newly injected elements
-      bootAOS();
+        // Re-init AOS for the newly injected elements
+        bootAOS();
 
-    } catch (err) {
-      console.error('Projects load error:', err);
-      if (statusEl) statusEl.remove();
-      const note = /Failed to fetch|NetworkError/i.test(err.message)
-        ? 'Network/CORS issue. Make sure the API is reachable and allows your domain.'
-        : err.message;
-      renderError(note);
+      } catch (err) {
+        console.error('Projects load error:', err);
+        if (statusEl) statusEl.remove();
+        const note = /Failed to fetch|NetworkError/i.test(err.message)
+          ? 'Network/CORS issue. Make sure the API is reachable and allows your domain.'
+          : err.message;
+        renderError(note);
+      }
     }
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    bootAOS();       // init for any static bits
-    loadProjects();  // then load dynamic projects
-  });
-</script>
+    document.addEventListener('DOMContentLoaded', () => {
+      bootAOS();       // init for any static bits
+      loadProjects();  // then load dynamic projects
+    });
+  </script>
 
 
 

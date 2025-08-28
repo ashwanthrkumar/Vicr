@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ViCr — Visionary Craftsman | Ashwanth R Kumar</title>
+    <meta name="description"
+        content="ViCr (Visionary Craftsman) — Ashwanth R Kumar’s personal brand. Identity, philosophy, visual system, and how to work with Ashwanth." />
+    <link rel="canonical" href="https://ashwanthrkumar.in/vicr" />
+
+    <!-- Favicon & manifest -->
+    <link rel="icon" href="../assets/images/logos/ViCrW.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/images/logos/ViCrW.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ViCr — Visionary Craftsman | Ashwanth R Kumar" />
+    <meta property="og:description" content="A crisp look at the ViCr identity, pillars, and brand assets." />
+    <meta property="og:image" content="https://ashwanthrkumar.in/assets/og/vicr-og.png" />
+    <meta property="og:url" content="https://ashwanthrkumar.in/vicr" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- CSS (Bootstrap + libs) -->
+    <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <!-- Preload key image -->
+    <link rel="preload" as="image" href="../assets/images/backgrounds/ashwanth_background.png" />
+
+    <style>
+        /* Page-scoped polish without touching global styles.css */
+        .brand-chip {
+            border: 1px solid rgba(0, 0, 0, .08);
+            padding: .45rem .75rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .swatch {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+        }
+
+        .swatch-row small {
+            opacity: .8;
+        }
+
+        .grid-auto {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .guideline-card {
+            border: 1px solid rgba(0, 0, 0, .06);
+            border-radius: 16px;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .04);
+        }
+
+        .code-tag {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: .85rem;
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: .5rem .6rem;
+            display: inline-block;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 20;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(5, 5, 5, .55), rgba(5, 5, 5, .25));
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Brand",
+    "name": "ViCr",
+    "alternateName": "Visionary Craftsman",
+    "url": "https://ashwanthrkumar.in/vicr",
+    "logo": "https://ashwanthrkumar.in/assets/images/logos/ViCrW.png",
+    "slogan": "Build with vision. Finish with craft.",
+    "brandMaintainer": {
+      "@type": "Person",
+      "name": "Ashwanth R Kumar",
+      "url": "https://ashwanthrkumar.in",
+      "sameAs": [
+        "https://www.linkedin.com/in/ashwanthrkumar",
+        "https://github.com/ashwanthrkumar"
+      ]
+    }
+  }
+  </script>
+</head>
+
+<body id="top">
+    <!-- Header -->
+    <header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+        <div class="container">
+            <div class="header-wrapper d-flex align-items-center justify-content-between">
+                <div class="logo">
+                    <a href="index.html" class="logo-white">
+                        <img src="../assets/images/logos/ViCrW.png" alt="logo" class="img-fluid">
+                    </a>
+                    <a href="index.html" class="logo-dark">
+                        <img src="../assets/images/logos/ViCrB.png" alt="logo" class="img-fluid">
+                    </a>
+                </div>
+                <div class="d-flex align-items-center gap-4">
+
+                    <div class="btn-group">
+                        <button
+                            class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+                            type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                            <iconify-icon icon="solar:hamburger-menu-line-duotone"
+                                class="menu-icon fs-8 text-dark"></iconify-icon>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end p-4">
+                            <div class="d-flex flex-column gap-6">
+                                <div class="hstack justify-content-between border-bottom pb-6">
+                                    <p class="mb-0 fs-5 text-dark">Menu</p>
+                                    <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+                                </div>
+                                <div class="d-flex flex-column gap-3">
+                                    <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                                        <li class="header-item">
+                                            <a href="index.html" aria-current="true"
+                                                class="header-link active hstack gap-2 fs-7 fw-bold text-dark">Home</a>
+                                        </li>
+                                        <li class="header-item">
+                                            <a href="about-us.html"
+                                                class="header-link hstack gap-2 fs-7 fw-bold text-dark">About</a>
+                                        </li>
+                                        <li class="header-item">
+                                            <a href="projects.html"
+                                                class="header-link hstack gap-2 fs-7 fw-bold text-dark">Projects</a>
+                                        </li>
+                                        <li class="header-item">
+                                            <a href="blog.html"
+                                                class="header-link hstack gap-2 fs-7 fw-bold text-dark">Blog</a>
+                                        </li>
+                                        <li class="header-item">
+                                            <a href="vicr.html"
+                                                class="header-link hstack gap-2 fs-7 fw-bold text-dark">Explore ViCR</a>
+                                        </li>
+                                        <li class="header-item">
+                                            <a href="index.html#contact"
+                                                class="header-link hstack gap-2 fs-7 fw-bold text-dark">Contact</a>
+                                        </li>
+
+                                    </ul>
+                                    <!-- <div class="hstack gap-3">
+                    <a href="sign-in.html"
+                      class="btn btn-outline-light fs-6 bg-white px-3 py-2 text-dark w-50 hstack justify-content-center">Sign
+                      In</a>
+                    <a href="sign-up.html"
+                      class="btn btn-dark text-white fs-6 bg-dark px-3 py-2 w-50 hstack justify-content-center">Sign
+                      Up</a>
+                  </div> -->
+                                </div>
+                                <div>
+                                    <a class="text-dark" href="tel:+91 91645 31527">+91 91645 31527</a>
+                                    <a class="fs-8 text-dark fw-bold"
+                                        href="mailto:hello@ashwanthrkumar.in">hello@ashwanthrkumar.in</a>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Wrapper -->
+    <main class="page-wrapper overflow-hidden">
+
+        <!-- HERO -->
+        <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
+            style="background-image: url(../assets/images/backgrounds/ashwanth_background.png);">
+            <div class="container">
+                <div class="d-flex flex-column gap-4 pb-8 position-relative z-1">
+                    <div class="row align-items-center">
+                        <div class="col-xl-4">
+                            <div class="d-flex align-items-center gap-4" data-aos="fade-up" data-aos-delay="100"
+                                data-aos-duration="1000">
+                                <img src="../assets/images/logos/logo1.png" alt="" class="img-fluid-vicr">
+                                <p class="mb-0 text-white fs-5 text-opacity-70">
+                                    I’m <strong>Ashwanth R Kumar</strong>, a software developer and creative
+                                    problem-solver. ViCr is my standard for work: build with <em>vision</em>, finish
+                                    with <em>craft</em>.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end gap-3" data-aos="fade-up" data-aos-delay="200"
+                        data-aos-duration="1000">
+                        <h1 class="mb-0 fs-16 text-white lh-1">about ViCr</h1>
+                        <iconify-icon icon="lucide:sparkles" class="fs-8 text-white"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRAND ESSENCE / PILLARS -->
+        <section class="py-5 py-lg-7 py-xl-10 bg-body" id="pillars">
+            <div class="container">
+                <div class="row gap-4 gap-lg-0 align-items-start">
+                    <div class="col-lg-4" data-aos="fade-right" data-aos-delay="120">
+                        <h2 class="fs-13 mb-3">Brand Essence</h2>
+                        <p class="fs-5 mb-0">ViCr stands for <strong>Visionary Craftsman</strong> — pairing long‑term
+                            thinking with hands‑on excellence. Every deliverable aims to be <em>clear</em>,
+                            <em>reliable</em>, and <em>delightful</em>.
+                        </p>
+                    </div>
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="160">
+                        <div class="grid-auto">
+                            <div class="guideline-card">
+                                <h5 class="mb-2">01 · Vision</h5>
+                                <p class="mb-0">Start from the outcome. What problem are we erasing? What will success
+                                    look like 6 months after launch?</p>
+                            </div>
+                            <div class="guideline-card">
+                                <h5 class="mb-2">02 · Craft</h5>
+                                <p class="mb-0">Reliable code, thoughtful UX, and tidy docs. Make it simple to maintain
+                                    and a joy to use.</p>
+                            </div>
+                            <div class="guideline-card">
+                                <h5 class="mb-2">03 · Momentum</h5>
+                                <p class="mb-0">Ship in tight loops. Small releases, measurable wins, continuous
+                                    improvement.</p>
+                            </div>
+                            <div class="guideline-card">
+                                <h5 class="mb-2">04 · Integrity</h5>
+                                <p class="mb-0">Set expectations, communicate openly, and keep promises. Quality over
+                                    shortcuts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- PROOF / NUMBERS -->
+        <section class="py-5 py-lg-11 py-xl-10 bg-body" id="proof">
+            <div class="container">
+                <div class="row gx-xl-5">
+                    <div class="col-md-6 col-lg-4 mb-8 mb-lg-0" data-aos="fade-up" data-aos-delay="80">
+                        <div class="d-flex flex-column gap-3">
+                            <h2 class="mb-0 fs-13 pb-4 border-bottom"><span class="count" data-target="4">4</span>+</h2>
+                            <h4 class="mb-0">Internships completed</h4>
+                            <p class="mb-0">Hands-on experience across Cognizant, Naturalytics, Varuna, and Scontinent.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-8 mb-lg-0" data-aos="fade-up" data-aos-delay="140">
+                        <div class="d-flex flex-column gap-3">
+                            <h2 class="mb-0 fs-13 pb-4 border-bottom"><span class="count" data-target="10">10</span>+
+                            </h2>
+                            <h4 class="mb-0">Projects built</h4>
+                            <p class="mb-0">From AI-powered apps to full-stack systems — blending problem-solving with
+                                innovation.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-8 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                        <div class="d-flex flex-column gap-3">
+                            <h2 class="mb-0 fs-13 pb-4 border-bottom">1 Vision</h2>
+                            <h4 class="mb-0">Building my brand</h4>
+                            <p class="mb-0">Through <strong>ViCr — Visionary Craftsman</strong>, I shape
+                                technology-driven experiences that last.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW TO WORK WITH ME -->
+        <section class="py-5 py-lg-11 py-xl-10" id="work-with-me">
+            <div class="container">
+                <div class="row gap-5 gap-lg-0">
+                    <div class="col-lg-4" data-aos="fade-right" data-aos-delay="80">
+                        <h2 class="fs-13 mb-3">Work with me</h2>
+                        <p class="fs-5 mb-0">Open to software developer roles, freelance work, and collaborations.</p>
+                    </div>
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="120">
+                        <div class="grid-auto">
+                            <div class="guideline-card">
+                                <h5 class="mb-2">Discovery</h5>
+                                <p class="mb-2">We map the problem, constraints, and success metrics in a short call.
+                                </p>
+                                <a class="link-primary fw-semibold"
+                                    href="mailto:hello@ashwanthrkumar.in?subject=Project%20discovery%20with%20ViCr">Book
+                                    a call →</a>
+                            </div>
+                            <div class="guideline-card">
+                                <h5 class="mb-2">Design & Plan</h5>
+                                <p class="mb-2">Architecture, milestones, and scope. Written in plain English, kept in
+                                    version control.</p>
+                                <span class="code-tag">Docs + Issues + Roadmap</span>
+                            </div>
+                            <div class="guideline-card">
+                                <h5 class="mb-2">Build & Ship</h5>
+                                <p class="mb-2">Tight feedback loops with demos. CI/CD and real metrics from day one.
+                                </p>
+                                <span class="code-tag">GCP · Render · Vercel</span>
+                            </div>
+                            <div class="guideline-card">
+                                <h5 class="mb-2">Handover</h5>
+                                <p class="mb-0">Docs, training, and a clear maintenance plan. No black boxes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- CONTACT / CTA -->
+        <section class="py-5 py-lg-11 py-xl-12" id="contact">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-8" data-aos="fade-right" data-aos-delay="80">
+                        <h2 class="mb-3">Let’s build something useful.</h2>
+                        <p class="fs-5 mb-0">Email <a class="fw-bold"
+                                href="mailto:hello@ashwanthrkumar.in">hello@ashwanthrkumar.in</a> or use the contact
+                            form on the homepage. I reply quickly.</p>
+                    </div>
+                    <div class="col-lg-4 d-flex gap-2 justify-content-lg-end" data-aos="fade-up" data-aos-delay="120">
+                        <a href="mailto:hello@ashwanthrkumar.in" class="btn btn-dark">Email me</a>
+                        <a href="/index.html#contact" class="btn btn-outline-dark">Contact form</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Pitch + quick actions -->
+                <div class="col-xl-5 mb-8 mb-xl-0">
+                    <div class="d-flex flex-column gap-8 pe-xl-5">
+                        <h2 class="mb-0 text-white">Transforming ideas into reality.</h2>
+                        <div class="d-flex flex-column gap-2">
+                            <a href="mailto:hello@ashwanthrkumar.in" class="link-hover hstack gap-3 text-white fs-5">
+                                <iconify-icon icon="lucide:mail" class="fs-7 text-primary"></iconify-icon>
+                                hello@ashwanthrkumar.in
+                            </a>
+                            <a href="index.html#contact" class="link-hover hstack gap-3 text-white fs-5">
+                                <iconify-icon icon="lucide:calendar" class="fs-7 text-primary"></iconify-icon>
+                                Let’s talk — contact form
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site nav -->
+                <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+                    <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                        <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
+                        <li><a class="link-hover fs-5 text-white" href="about.html">About</a></li>
+                        <li><a class="link-hover fs-5 text-white" href="vicr.html">Explore ViCr</a></li>
+                        <li><a class="link-hover fs-5 text-white" href="projects.html">Projects</a></li>
+                        <li><a class="link-hover fs-5 text-white" href="blog.html">Blog</a></li>
+                        <li><a class="link-hover fs-5 text-white" href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Policies -->
+                <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+                    <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                        <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
+                        <li><a class="link-hover fs-5 text-white" href="404.html">404</a></li>
+                    </ul>
+                </div>
+
+                <!-- Socials -->
+                <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
+                    <ul class="footer-menu list-unstyled mb-3 d-flex gap-3 justify-content-xl-end">
+                        <li>
+                            <a class="link-hover fs-5 text-white d-inline-flex align-items-center gap-2"
+                                href="https://www.linkedin.com/in/ashwanthrkumar" target="_blank" rel="noopener">
+                                <iconify-icon icon="lucide:linkedin" class="fs-7 text-primary"></iconify-icon> LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link-hover fs-5 text-white d-inline-flex align-items-center gap-2"
+                                href="https://github.com/ashwanthrkumar" target="_blank" rel="noopener">
+                                <iconify-icon icon="lucide:github" class="fs-7 text-primary"></iconify-icon> GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link-hover fs-5 text-white d-inline-flex align-items-center gap-2"
+                                href="https://www.behance.net/" target="_blank" rel="noopener">
+                                <iconify-icon icon="lucide:palette" class="fs-7 text-primary"></iconify-icon> Behance
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="mb-0 text-white text-opacity-70 text-xl-end">
+                        © <span id="year"></span> ViCR · Ashwanth R Kumar
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- tiny bottom bar -->
+        <div class="container mt-10">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#top" class="link-hover text-white d-inline-flex align-items-center gap-2">
+                    <iconify-icon icon="lucide:arrow-up" class="fs-7 text-primary"></iconify-icon> Back to top
+                </a>
+                <!-- Optional attribution (remove if not needed)
+      <p class="mb-0 text-white text-opacity-50">Theme base adapted from ThemeWagon</p>
+      -->
+            </div>
+        </div>
+
+        <script>
+            // keep year current
+            document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+        </script>
+    </footer>
+
+    <!-- Sticky quick-action -->
+    <div class="sticky-cta">
+        <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0"
+            id="scrollToTopBtn" aria-label="Scroll to top">
+            <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js" defer></script>
+    <script src="../assets/libs/aos-master/dist/aos.js" defer></script>
+    <script src="../assets/js/custom.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js" defer></script>
+    <script>
+        document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+        window.addEventListener('load', function () { AOS && AOS.init(); });
+        // Smooth scroll-to-top
+        const topBtn = document.getElementById('scrollToTopBtn');
+        if (topBtn) topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+
+</html>
